@@ -1,4 +1,4 @@
-%Mohammomad Masud Chowdhury Mahir
+
 %two sample t-test
 format long g;   
 val1=[82,85,90,88,91,87];
