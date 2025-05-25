@@ -1,0 +1,28 @@
+paitent = [40,15,15,10,20];
+disp("Random Paitent");
+for i = 1:length(paitent)
+    disp(paitent(i));
+end
+
+total = sum(paitent);
+prob = paitent./total ; 
+c_prob = cumsum(prob);
+arrival = [0,30,60,90,120,150,180,210];
+service_start = [0,60,75,120,165,210,225,270];
+waiting_time = service_start - arrival;
+avg_wait = sum(waiting_time)/length(arrival);
+idle_time = zeros(1, length(arrival));
+idle_time = 0;
+
+for i = 2:length(arrival)
+    prev_service_end = service_start(i-1) + 45;
+    idle_time(i) = max(0, arrival(i) - prev_service_end);
+end
+
+total_idle = sum(idle_time);
+
+disp("Avarage Wait Time");
+disp(avg_wait);
+
+disp("Total Idle Time");
+disp(total_idle);
